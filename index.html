@@ -599,10 +599,10 @@
       <p>Uninstall apps cleanly — removes preferences, support files, and caches together.</p>
     </div>
 
-    <div class="feature-card">
+    <div class="feature-card" style="border-color:var(--photos);box-shadow:0 0 0 1px var(--photos)">
       <div class="feature-icon" style="background:color-mix(in srgb,var(--photos) 15%,transparent)">📷</div>
-      <h4>Photos</h4>
-      <p>Large videos and screenshots buried inside your Photos library, with inline preview.</p>
+      <h4>Photos &amp; Videos <span style="color:var(--photos);font-size:11px;font-weight:600">PREVIEW</span></h4>
+      <p>Large videos and screenshots from your Photos library. Tap any thumbnail to preview photos or play videos <strong>before</strong> deciding to delete.</p>
     </div>
 
     <div class="feature-card">
@@ -648,6 +648,68 @@
     </div>
 
   </div>
+
+  <!-- Photos preview callout -->
+  <div style="max-width:880px;margin:40px auto 0;background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+
+      <!-- Mock preview sheet -->
+      <div style="background:#000;padding:28px;display:flex;flex-direction:column;align-items:center;gap:14px">
+        <!-- Black preview area with play button -->
+        <div style="width:100%;aspect-ratio:4/3;background:#111;border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <!-- Simulated photo gradient -->
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a2a4a 0%,#2d4a6e 40%,#1e3a5f 100%);opacity:0.9"></div>
+          <!-- Thumbnail grid overlay (subtle) -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(0deg,rgba(0,0,0,0.5),transparent)"></div>
+          <!-- Play button for video -->
+          <div style="position:relative;z-index:2;width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5)">
+            <span style="font-size:22px;margin-left:4px">▶</span>
+          </div>
+          <!-- Duration badge -->
+          <div style="position:absolute;bottom:8px;right:10px;font-size:11px;color:rgba(255,255,255,0.8);font-weight:600;z-index:2">5m 37s</div>
+        </div>
+        <!-- File info -->
+        <div style="text-align:center">
+          <div style="color:#fff;font-size:13px;font-weight:600">Video  5m37s  2021/03/13</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:12px;margin-top:2px">702.3 MB</div>
+        </div>
+        <!-- Buttons -->
+        <div style="display:flex;gap:10px">
+          <div style="padding:7px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7);font-size:13px;font-weight:600">Close</div>
+          <div style="padding:7px 16px;border-radius:8px;background:#ef4444;color:#fff;font-size:13px;font-weight:600">Select for Deletion</div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div style="padding:32px 28px;display:flex;flex-direction:column;justify-content:center;gap:20px">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--photos);margin-bottom:8px">Photos &amp; Videos</div>
+          <h3 style="font-size:22px;font-weight:800;letter-spacing:-0.3px;margin-bottom:10px">Preview before you delete.</h3>
+          <p style="font-size:14px;color:var(--text-2);line-height:1.65">Every photo and video in your scan results shows a thumbnail. Tap it to open a full-size preview — no guessing, no regret.</p>
+        </div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px">
+            <span style="width:22px;height:22px;border-radius:6px;background:color-mix(in srgb,var(--photos) 15%,transparent);color:var(--photos);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">🖼️</span>
+            <span><strong>Photo preview</strong> — full-size image in a sheet, sorted by size so the biggest files come first</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px">
+            <span style="width:22px;height:22px;border-radius:6px;background:color-mix(in srgb,var(--photos) 15%,transparent);color:var(--photos);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">▶️</span>
+            <span><strong>Video playback</strong> — tap play to stream the video inline, even from iCloud</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px">
+            <span style="width:22px;height:22px;border-radius:6px;background:color-mix(in srgb,var(--green) 15%,transparent);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">✓</span>
+            <span><strong>Select or deselect</strong> right from the preview — no need to go back to the list</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px">
+            <span style="width:22px;height:22px;border-radius:6px;background:color-mix(in srgb,var(--trash) 15%,transparent);color:var(--trash);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">⚠️</span>
+            <span><strong>Photos are permanently deleted</strong> via the Photos API — preview first, always</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
 </section>
 
 <!-- Undo & Restore -->
