@@ -241,6 +241,80 @@
     .feature-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
     .feature-card p { font-size: 12px; color: var(--text-2); line-height: 1.5; }
 
+    /* ── Restore ── */
+    .restore-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 880px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .restore-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .restore-card-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--divider);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .restore-card-header h4 { font-size: 15px; font-weight: 700; }
+    .restore-card-header p { font-size: 12px; color: var(--text-2); margin-top: 2px; }
+    .restore-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .restore-item:last-child { border-bottom: none; }
+    .restore-module-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; flex-shrink: 0;
+    }
+    .restore-item-name { flex: 1; font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .restore-item-size { font-size: 12px; color: var(--text-2); margin-right: 8px; }
+    .restore-btn {
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 6px;
+      border: 1.5px solid var(--brand); color: var(--brand);
+      background: transparent; cursor: default; flex-shrink: 0;
+    }
+    .restore-footer {
+      padding: 12px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--divider);
+      background: color-mix(in srgb, var(--bg-alt) 60%, transparent);
+    }
+    .restore-footer span { font-size: 12px; color: var(--text-2); }
+    .restore-all-btn {
+      font-size: 12px; font-weight: 700;
+      color: var(--brand); background: none; border: none; cursor: default;
+    }
+    .permanent-list {
+      list-style: none; padding: 20px 24px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .permanent-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13px; color: var(--text-2);
+    }
+    .permanent-list .badge {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; border-radius: 50%;
+      font-size: 10px; font-weight: 700;
+    }
+    .badge-safe { background: color-mix(in srgb, var(--green) 15%, transparent); color: var(--green); }
+    .badge-perm { background: color-mix(in srgb, var(--trash) 15%, transparent); color: var(--trash); }
+    .restore-table-note {
+      font-size: 12px; color: var(--text-2); line-height: 1.6;
+      padding: 0 24px 20px;
+    }
+
     /* ── How It Works ── */
     .how-steps {
       display: grid;
@@ -386,6 +460,7 @@
       nav { padding: 0 4%; }
       section { padding: 56px 4%; }
       .stat-item { padding: 8px 20px; }
+      .restore-layout { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -572,6 +647,113 @@
       <p>Runs all 8 safe modules in parallel. Always free — no license required.</p>
     </div>
 
+  </div>
+</section>
+
+<!-- Undo & Restore -->
+<section style="background: var(--bg-alt);">
+  <p class="section-label">Safety First</p>
+  <h2 class="section-title">Deleted something by mistake? Undo it.</h2>
+  <p class="section-sub">Most modules move files to Trash — not permanent deletion. After every cleanup, Macly shows a full restore list so you can bring anything back instantly.</p>
+
+  <div class="restore-layout">
+
+    <!-- Mock CompletionView restore list -->
+    <div>
+      <div style="text-align:center;margin-bottom:20px">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;background:color-mix(in srgb,var(--green) 12%,transparent);margin-bottom:12px">
+          <span style="font-size:36px">✅</span>
+        </div>
+        <div style="font-size:22px;font-weight:800">Cleanup Complete</div>
+        <div style="font-size:18px;font-weight:700;color:var(--green);margin-top:4px">3.2 GB freed</div>
+      </div>
+
+      <div class="restore-card">
+        <div class="restore-card-header">
+          <div style="flex:1">
+            <h4>Deleted Items</h4>
+            <p>Each item is in Trash — you can restore any time</p>
+          </div>
+          <span class="restore-all-btn">Restore All</span>
+        </div>
+
+        <div class="restore-item">
+          <div class="restore-module-icon" style="background:color-mix(in srgb,var(--mail) 18%,transparent)">✉️</div>
+          <div class="restore-item-name">WWDC2024_video.mp4</div>
+          <span class="restore-item-size">842 MB</span>
+          <span class="restore-btn">Restore</span>
+        </div>
+        <div class="restore-item">
+          <div class="restore-module-icon" style="background:color-mix(in srgb,var(--screenshots) 18%,transparent)">📸</div>
+          <div class="restore-item-name">Screenshot 2024-11-03.png</div>
+          <span class="restore-item-size">4.1 MB</span>
+          <span class="restore-btn">Restore</span>
+        </div>
+        <div class="restore-item">
+          <div class="restore-module-icon" style="background:color-mix(in srgb,var(--dmg) 18%,transparent)">💿</div>
+          <div class="restore-item-name">Figma-124.3.dmg</div>
+          <span class="restore-item-size">215 MB</span>
+          <span class="restore-btn">Restore</span>
+        </div>
+        <div class="restore-item">
+          <div class="restore-module-icon" style="background:color-mix(in srgb,var(--dev) 18%,transparent)">🔨</div>
+          <div class="restore-item-name">node_modules cache</div>
+          <span class="restore-item-size">1.8 GB</span>
+          <span class="restore-btn">Restore</span>
+        </div>
+        <div class="restore-item">
+          <div class="restore-module-icon" style="background:color-mix(in srgb,var(--browser) 18%,transparent)">🌐</div>
+          <div class="restore-item-name">Chrome cache</div>
+          <span class="restore-item-size">320 MB</span>
+          <span class="restore-btn">Restore</span>
+        </div>
+
+        <div class="restore-footer">
+          <span>5 items can be restored</span>
+          <button class="restore-all-btn">Restore All</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Explanation -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+
+      <div class="restore-card">
+        <div class="restore-card-header">
+          <span style="font-size:24px">♻️</span>
+          <div>
+            <h4>Moved to Trash — always restorable</h4>
+            <p>These 5 modules use Trash, not permanent delete</p>
+          </div>
+        </div>
+        <ul class="permanent-list">
+          <li><span class="badge badge-safe">✓</span><span><strong>Mail</strong> — email attachments &amp; downloads</span></li>
+          <li><span class="badge badge-safe">✓</span><span><strong>Screenshots</strong> — screenshot files</span></li>
+          <li><span class="badge badge-safe">✓</span><span><strong>DMG Files</strong> — disk image installers</span></li>
+          <li><span class="badge badge-safe">✓</span><span><strong>Dev Caches</strong> — npm, pip, Gradle, etc.</span></li>
+          <li><span class="badge badge-safe">✓</span><span><strong>Browser Cache</strong> — Chrome, Firefox, Arc…</span></li>
+        </ul>
+        <p class="restore-table-note">Open Finder → Trash and drag anything back, or use Macly's built-in Restore button right after cleanup.</p>
+      </div>
+
+      <div class="restore-card">
+        <div class="restore-card-header">
+          <span style="font-size:24px">⚠️</span>
+          <div>
+            <h4>Permanently deleted — shown clearly</h4>
+            <p>These modules bypass Trash by design</p>
+          </div>
+        </div>
+        <ul class="permanent-list">
+          <li><span class="badge badge-perm">!</span><span><strong>Junk Files</strong> — auto-regenerated by macOS; safe to delete permanently</span></li>
+          <li><span class="badge badge-perm">!</span><span><strong>Duplicates</strong> — permanently removed (review before confirming)</span></li>
+          <li><span class="badge badge-perm">!</span><span><strong>Photos</strong> — deleted via Photos API; cannot be undeleted</span></li>
+          <li><span class="badge badge-perm">!</span><span><strong>Trash</strong> — already in Trash; emptied permanently</span></li>
+        </ul>
+        <p class="restore-table-note">Macly labels every permanent deletion with a caution badge on the detail page — so you always know before you clean.</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
