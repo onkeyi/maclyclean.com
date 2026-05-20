@@ -2,6 +2,15 @@
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
+  <!-- Language Detection & Redirect -->
+  <script>
+    (function() {
+      var lang = navigator.language || navigator.userLanguage || '';
+      if (lang.toLowerCase().startsWith('ja') && !window.location.pathname.startsWith('/ja')) {
+        window.location.replace('/ja/');
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-774LQ4PHDF"></script>
