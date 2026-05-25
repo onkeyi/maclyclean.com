@@ -1072,5 +1072,42 @@
   </div>
 </footer>
 
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e0e0e0;box-shadow:0 -2px 16px rgba(0,0,0,0.10);z-index:9999;padding:20px 32px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+      <div style="max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+            <div style="flex:1;min-width:260px;">
+                    <strong style="font-size:15px;display:block;margin-bottom:4px;">About our cookies 🍪</strong>strong>
+                    <p style="margin:0;font-size:13px;color:#444;line-height:1.5;">We use cookies and similar technologies to improve your experience and analyze site traffic. By clicking <strong>Accept</strong>, you agree to our use of optional cookies. See our <a href="#" style="color:#0057b8;text-decoration:underline;">Cookie Notice</a>a> for details.</p>p>
+            </div>div>
+          <div style="display:flex;gap:10px;flex-shrink:0;align-items:center;">
+                <button id="cookie-reject" onclick="cookieBannerReject()" style="padding:10px 22px;border:2px solid #0057b8;background:transparent;color:#0057b8;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;">Reject All</button>button>
+                <button id="cookie-accept" onclick="cookieBannerAccept()" style="padding:10px 22px;background:#0057b8;color:#fff;border:none;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;">ACCEPT</button>button>
+          </div>div>
+      </div>div>
+  </div>div>
+<script>
+  (function() {
+      function showBanner() {
+            if (!localStorage.getItem('cookieConsent')) {
+                    document.getElementById('cookie-banner').style.display = 'block';
+            }
+      }
+      window.cookieBannerAccept = function() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-banner').style.display = 'none';
+      };
+      window.cookieBannerReject = function() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookie-banner').style.display = 'none';
+      };
+      if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', showBanner);
+      } else {
+            showBanner();
+      }
+  })();
+</script>
+  
+</script></strong>
 </body>
 </html>
