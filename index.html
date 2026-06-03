@@ -55,7 +55,7 @@
     "url": "https://maclyclean.com/",
     "image": "https://maclyclean.com/icon.png",
     "screenshot": "https://maclyclean.com/store-banner.png",
-    "softwareVersion": "1.2.2",
+    "softwareVersion": "1.3.0",
     "datePublished": "2026-05-01",
     "author": {
       "@type": "Organization",
@@ -98,9 +98,11 @@
       "Trash emptier",
       "Developer cache cleaner",
       "Screenshot cleaner",
-      "Browser cache cleaner (Chrome, Firefox, Edge, Brave, Arc)"
+      "Browser cache cleaner (Chrome, Firefox, Edge, Brave, Arc)",
+      "Malware scanner — browser extensions, LaunchAgents, config profiles, DNS/hosts",
+      "Real-time CPU, GPU, and memory dashboard"
     ],
-    "softwareVersion": "1.0",
+    "softwareVersion": "1.3.0",
     "downloadUrl": "https://maclyclean.com/Macly.dmg",
     "isAccessibleForFree": true,
     "applicationSubCategory": "Disk Cleaner"
@@ -615,8 +617,8 @@
 <!-- Stats bar -->
 <div class="stats-bar" role="region" aria-label="Key statistics">
   <div class="stat-item">
-    <div class="stat-num"><span>11</span></div>
-    <div class="stat-label">Cleaning Modules</div>
+    <div class="stat-num"><span>11</span>+<span style="font-size:18px">🛡️</span></div>
+    <div class="stat-label">Modules + Security Scan</div>
   </div>
   <div class="stat-item">
     <div class="stat-num"><span>7</span>-day</div>
@@ -631,6 +633,19 @@
     <div class="stat-label">No Subscription Ever</div>
   </div>
 </div>
+
+<!-- App Screenshot -->
+<section style="background: var(--bg); padding: 64px 5% 56px; text-align: center;">
+  <p class="section-label">v1.3.0 · Now Available</p>
+  <h2 class="section-title">Your Mac. Always under control.</h2>
+  <p class="section-sub">Dashboard shows disk usage, real-time memory breakdown, CPU and GPU load — plus one-click access to all 11 cleaning modules and the built-in security scanner.</p>
+  <img src="product-4.png"
+       alt="Macly 1.3.0 dashboard — disk ring, memory bar, CPU/GPU grid, and module list"
+       loading="eager"
+       style="max-width: 760px; width: 100%; border-radius: 20px;
+              box-shadow: 0 24px 80px rgba(0,0,0,0.18); border: 1px solid var(--card-border);
+              margin-top: 8px;" />
+</section>
 
 <!-- Problem -->
 <section id="why-macly" style="background: var(--bg);">
@@ -752,6 +767,12 @@
       <div class="feature-icon" style="background:color-mix(in srgb,var(--brand) 15%,transparent)">✨</div>
       <h3>Smart Scan — Always Free</h3>
       <p>Smart Scan combines eight modules into a single parallel sweep of your Mac, running each scan simultaneously. Results stream in as they are found — no waiting for all modules to finish before seeing your first item. Every result is sorted by size so the biggest space savings are always visible first. Smart Scan runs without any license, any account, or any configuration, and will continue to be free in every future version of Macly.</p>
+    </article>
+
+    <article class="feature-card" style="border-color:#10B981;box-shadow:0 0 0 1.5px #10B981">
+      <div class="feature-icon" style="background:color-mix(in srgb,#10B981 15%,transparent)">🛡️</div>
+      <h3>Malware Scan <span style="color:#10B981;font-size:11px;font-weight:600">NEW in 1.3.0</span></h3>
+      <p>Six-phase security scan built into Macly at no extra cost. Detects browser extension hijacking across Chrome, Edge, Brave, Firefox, and Safari using weighted permission scoring and a known-malicious-ID blacklist. Identifies suspicious LaunchAgents and Daemons, unauthorized MDM configuration profiles (proxy hijack, root CA injection, forced VPN), hosts file tampering, and non-standard DNS resolvers. Dismissed findings are remembered — they don't reappear on the next scan.</p>
     </article>
 
   </div>
@@ -928,6 +949,40 @@
       <h3>Review &amp; Clean</h3>
       <p>Browse the full results list. Sort by name or size. Preview photos and videos before selecting them. Check or uncheck items individually, then click Clean Up. Most modules move files to Trash so you can restore anything at any time.</p>
     </article>
+  </div>
+</section>
+
+<!-- Security -->
+<section style="background: var(--bg);">
+  <p class="section-label">Security · New in 1.3.0</p>
+  <h2 class="section-title">Mac security, built right in</h2>
+  <p class="section-sub">Malware Scan runs six detection phases to catch browser hijacking, adware, and unauthorized system changes — no separate app, no extra cost.</p>
+  <div class="features-grid" style="max-width: 900px;">
+
+    <article class="feature-card">
+      <div class="feature-icon" style="background:color-mix(in srgb,var(--brand) 15%,transparent)">🔌</div>
+      <h3>Browser Extension Analysis</h3>
+      <p>Scans Chrome, Edge, Brave, Firefox, and Safari extensions using a weighted danger score: broad host access (+50), webRequest (+30), cookie access (+20). MV3 <code>host_permissions</code> are included. Extensions matching a known-malicious-ID list are flagged as critical regardless of declared permissions.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon" style="background:color-mix(in srgb,var(--trash) 15%,transparent)">⚠️</div>
+      <h3>Adware &amp; LaunchAgent Detection</h3>
+      <p>Checks LaunchAgents and LaunchDaemons across user and system directories against a 28-pattern adware library and suspicious label prefixes such as <code>com.update.*</code>. Also flags launch agents that use unsigned binaries stored in non-standard locations outside <code>/Applications</code>, <code>/usr</code>, or <code>/bin</code>.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon" style="background:color-mix(in srgb,#10B981 15%,transparent)">🔒</div>
+      <h3>Configuration Profile Detection</h3>
+      <p>Reads installed MDM and configuration profiles via <code>profiles list</code>. Flags proxy hijacking (<code>com.apple.proxies</code>), root CA injection (<code>com.apple.security.root</code>), and forced VPN profiles (<code>com.apple.vpn.managed</code>) as critical or warning findings with a direct link to System Settings → Profiles to remove them.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon" style="background:color-mix(in srgb,var(--browser) 15%,transparent)">🌐</div>
+      <h3>Hosts File &amp; DNS Monitoring</h3>
+      <p>Parses <code>/etc/hosts</code> for entries that redirect monitored domains (Google, Apple, iCloud, GitHub, PayPal and more) to non-localhost IPs — a common malware persistence technique. Separately checks active DNS resolvers via <code>scutil --dns</code> and flags servers that are not public trusted resolvers or RFC 1918 private ranges.</p>
+    </article>
+
   </div>
 </section>
 
