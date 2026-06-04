@@ -586,7 +586,8 @@
     <a class="btn btn-ghost" href="#faq">FAQ</a>
   </div>
   <div class="nav-actions">
-    <a class="btn btn-primary" href="https://maclyclean.com/Macly.dmg">
+    <a class="btn btn-primary" href="https://maclyclean.com/Macly.dmg"
+       onclick="trackDownload('nav')">
       ↓ Download Free
     </a>
   </div>
@@ -601,7 +602,8 @@
      in one click. Smart Scan is <strong>always free</strong>.
      Unlock all 11 modules with a single one-time purchase, no subscription ever.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://maclyclean.com/Macly.dmg">
+    <a class="btn btn-primary" href="https://maclyclean.com/Macly.dmg"
+       onclick="trackDownload('hero')">
       ↓ Download Macly Free
     </a>
     <a class="btn btn-outline" href="#pricing">See Pricing</a>
@@ -1004,7 +1006,8 @@
       </ul>
       <a class="btn btn-outline" style="width:100%;justify-content:center"
          href="https://macly.lemonsqueezy.com/checkout/buy/7ad2dda4-d8c5-495f-9c67-849e146d82ac"
-         rel="noopener" target="_blank">
+         rel="noopener" target="_blank"
+         onclick="trackPurchase('personal', 10)">
         Buy Personal →
       </a>
     </div>
@@ -1021,7 +1024,8 @@
       </ul>
       <a class="btn btn-primary" style="width:100%;justify-content:center"
          href="https://macly.lemonsqueezy.com/checkout/buy/4d01e8c5-e2e2-46f4-a4a8-6581ca5d6f85"
-         rel="noopener" target="_blank">
+         rel="noopener" target="_blank"
+         onclick="trackPurchase('family', 25)">
         Buy Family →
       </a>
     </div>
@@ -1037,7 +1041,8 @@
       </ul>
       <a class="btn btn-outline" style="width:100%;justify-content:center"
          href="https://macly.lemonsqueezy.com/checkout/buy/f9a04f24-4412-401c-b2e9-987eb1698924"
-         rel="noopener" target="_blank">
+         rel="noopener" target="_blank"
+         onclick="trackPurchase('team', 50)">
         Buy Team →
       </a>
     </div>
@@ -1107,7 +1112,8 @@
        style="border-radius:18px;margin:0 auto 20px;display:block;box-shadow:0 8px 32px rgba(0,0,0,0.3)" />
   <h2>Start cleaning your Mac — free, right now.</h2>
   <p>Download Macly and reclaim gigabytes in minutes. Smart Scan is free forever. No account. No subscription. No tricks.</p>
-  <a class="btn btn-white" href="https://maclyclean.com/Macly.dmg">
+  <a class="btn btn-white" href="https://maclyclean.com/Macly.dmg"
+     onclick="trackDownload('cta')">
     ↓ Download Macly Free
   </a>
   <div class="final-cta-meta">
@@ -1126,6 +1132,26 @@
     <a href="#faq">FAQ</a>
   </div>
 </footer>
+
+<script>
+  function trackDownload(location) {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'file_download', {
+      file_name: 'Macly.dmg',
+      file_extension: 'dmg',
+      link_url: 'https://maclyclean.com/Macly.dmg',
+      download_location: location
+    });
+  }
+  function trackPurchase(plan, value) {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'begin_checkout', {
+      currency: 'USD',
+      value: value,
+      items: [{ item_id: 'macly_' + plan, item_name: 'Macly ' + plan, price: value, quantity: 1 }]
+    });
+  }
+</script>
 
 </body>
 </html>
